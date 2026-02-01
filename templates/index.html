@@ -13,15 +13,28 @@
             <div class="container">
                 <div id="navMenu" class="navbar-menu">
                     <div class="navbar-start">
-                        <a class="navbar-item"> Home </a>
-                        <a class="navbar-item"> Documentation </a>
+                        <a class="navbar-item" href="/"> Home </a>
+                        <a
+                            class="navbar-item"
+                            href="https://github.com/Kenkyoo/flask-tasks"
+                        >
+                            Documentation
+                        </a>
                     </div>
 
                     <div class="navbar-end">
                         <div class="navbar-item">
                             <div class="buttons">
-                                <a class="button is-dark">Github</a>
-                                <a class="button is-link">Download</a>
+                                <a
+                                    class="button is-dark"
+                                    href="https://github.com/Kenkyoo"
+                                    >Github</a
+                                >
+                                <a
+                                    class="button is-link"
+                                    href="https://github.com/Kenkyoo?tab=repositories"
+                                    >Repos</a
+                                >
                             </div>
                         </div>
                     </div>
@@ -82,8 +95,8 @@
                                         </div>
                                         <a href="/completar/{{ tarea['id'] }}"
                                             ><span
-                                                class="icon has-text-success"
-                                                style="font-size: 1rem"
+                                                class="icon has-text-success mt-2"
+                                                style="font-size: 1.5rem"
                                                 >✅</span
                                             ></a
                                         >
@@ -122,5 +135,13 @@
                 </div>
             </div>
         </section>
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p>
+                    <strong>Flask tasks</strong> by
+                    <a href="https://github.com/Kenkyoo">Kenkyo</a>.
+                </p>
+            </div>
+        </footer>
     </body>
 </html>
