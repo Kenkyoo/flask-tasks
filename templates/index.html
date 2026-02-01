@@ -1,33 +1,108 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Mis Tareas</title>
-  </head>
-  <body>
-    <h1>Gestor de Tareas</h1>
-    <ul>
-      {% for tarea in tareas %}
-      <li>
-        {% if tarea['hecho'] %}
+<!doctype html>
+<html lang="es" class="theme-dark">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Mis Tareas</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+        />
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="container">
+                <div id="navMenu" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item"> Home </a>
+                        <a class="navbar-item"> Documentation </a>
+                    </div>
 
-        <s>{{ tarea['texto'] }}</s>
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <div class="buttons">
+                                <a class="button is-dark">Github</a>
+                                <a class="button is-link">Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
 
-        {% else %} {{ tarea['texto'] }}
-        <a href="/completar/{{ tarea['id'] }}">[Completar]</a>
+        <section class="hero is-dark is-fullheight-with-navbar">
+            <div class="hero-body">
+                <div class="box">
+                    <p class="title">Fullheight hero with navbar</p>
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">Card header</p>
+                            <button
+                                class="card-header-icon"
+                                aria-label="more options"
+                            >
+                                <span class="icon">
+                                    <i
+                                        class="fas fa-angle-down"
+                                        aria-hidden="true"
+                                    ></i>
+                                </span>
+                            </button>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <div class="columns is-mobile">
+                                    {% for tarea in tareas %}
+                                    <div class="column">
+                                        {% if tarea['hecho'] %}
+                                        <div class="field">
+                                            <div class="control">
+                                                <input
+                                                    class="input"
+                                                    type="text"
+                                                    value="{{ tarea['texto'] }}"
+                                                    readonly
+                                                />
+                                            </div>
+                                        </div>
+                                        <s>{{ tarea['texto'] }}</s>
 
-        {% endif %}
-      </li>
-      {% endfor %}
-    </ul>
-    <form action="/agregar" method="post">
-      <input
-        type="text"
-        name="texto_tarea"
-        placeholder="Nueva tarea"
-        required
-      />
-      <button type="submit">Agregar</button>
-    </form>
-  </body>
+                                        {% else %} {{ tarea['texto'] }}
+                                        <a href="/completar/{{ tarea['id'] }}"
+                                            >[Completar]</a
+                                        >
+
+                                        {% endif %}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <form action="/agregar" method="post">
+                                <div class="field">
+                                    <div class="control">
+                                        <input
+                                            class="input"
+                                            type="text"
+                                            name="texto_tarea"
+                                            placeholder="Nueva tarea"
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                                <div class="control">
+                                    <button
+                                        type="submit"
+                                        class="button is-link"
+                                    >
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
 </html>
